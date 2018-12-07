@@ -5,7 +5,19 @@ import java.util.Collections;
 
 public class WhaleWatcher {
 	
-	public static String whalesThatSwimsInAtlantic(ArrayList<Whale> whale) {
+	 public static void whaleDetails(ArrayList<Whale> whale) {
+			System.out.println("Name, Main Ocean, Weight, Max Speed, Length");
+			for(int i = 0 ; i < whale.size() ; i++) {
+				System.out.println(whale.get(i).getName() + " " + 
+			                       whale.get(i).getMainOcean() + " " + 
+						           whale.get(i).getWeight() + " " +
+			                       whale.get(i).getMaxSpeed() + " " +
+						           whale.get(i).getLength());
+			}
+	
+		}
+	
+    public static String whalesThatSwimsInAtlantic(ArrayList<Whale> whale) {
 		String names = "";
 		for(int i = 0 ; i < whale.size() ; i++) {
 			if(whale.get(i).getMainOcean() == "Atlantic") {
@@ -88,13 +100,17 @@ public class WhaleWatcher {
 		whaleArray.add(whale3);
 		whaleArray.add(whale4);
 		
-		whalesThatSwimsInAtlantic(whaleArray);
+		whaleDetails(whaleArray);
 		
-		fastestSwimmer(whaleArray);
+		System.out.println(whalesThatSwimsInAtlantic(whaleArray));
 		
-		averageLength(whaleArray);
+		System.out.println(fastestSwimmer(whaleArray));
 		
-		heaviestWhales(whaleArray);
+		System.out.println(averageLength(whaleArray));
+		
+		System.out.println(heaviestWhales(whaleArray));
+		
+		
 	}
 
 }
