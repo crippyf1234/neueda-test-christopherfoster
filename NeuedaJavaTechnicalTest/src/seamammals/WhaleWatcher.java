@@ -1,19 +1,42 @@
 package seamammals;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class WhaleWatcher {
 	
-	public static String whalesThatSwimsInAtlantic(ArrayList<Whale> variable) {
+	public static String whalesThatSwimsInAtlantic(ArrayList<Whale> whale) {
 		String names = "";
-		for(int i = 0 ; i < variable.size() ; i++) {
-			if(variable.get(i).getMainOcean() == "Atlantic") {
-				names += variable.get(i).getName();
+		for(int i = 0 ; i < whale.size() ; i++) {
+			if(whale.get(i).getMainOcean() == "Atlantic") {
+				names += whale.get(i).getName();
 				names += " ";
 			}
 			else {}
 		}
 		return names;
+	}
+	
+	public static String fastestSwimmer(ArrayList<Whale> whale) {
+		
+		ArrayList<Integer> speeds = new ArrayList<Integer>();
+		
+		for(int i = 0 ; i < whale.size() ; i++) {
+		speeds.add(whale.get(i).getMaxSpeed());
+		}
+		
+		Collections.sort(speeds);
+		
+		String fastestWhale = "";
+		
+		for(int i = 0 ; i < whale.size() ; i++) {
+			if(whale.get(i).getMaxSpeed() == speeds.get(whale.size() - 1)) {
+				fastestWhale += whale.get(i).getName();
+			}
+			else {}
+		}
+		
+		return fastestWhale;
 	}
 
 	public static void main(String[] args) {
@@ -30,7 +53,10 @@ public class WhaleWatcher {
 		whaleArray.add(whale3);
 		whaleArray.add(whale4);
 		
-		System.out.println(whalesThatSwimsInAtlantic(whaleArray));
+		whalesThatSwimsInAtlantic(whaleArray);
+		
+		fastestSwimmer(whaleArray);
+		
 	
 	}
 
