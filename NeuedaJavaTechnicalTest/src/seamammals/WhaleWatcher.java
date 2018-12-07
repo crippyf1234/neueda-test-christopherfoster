@@ -50,6 +50,29 @@ public class WhaleWatcher {
 		
 		return avg = sum / whale.size();
 	}
+	
+	public static String heaviestWhales(ArrayList<Whale> whale) {
+			
+			ArrayList<Integer> weights = new ArrayList<Integer>();
+			
+			for(int i = 0 ; i < whale.size() ; i++) {
+			weights.add(whale.get(i).getWeight());
+			}
+			
+			Collections.sort(weights);
+			
+			String heaviestWhale = "";
+			
+			for(int i = 0 ; i < whale.size() ; i++) {
+				if(whale.get(i).getWeight() == weights.get(whale.size() - 1)) {
+					heaviestWhale += whale.get(i).getName();
+					heaviestWhale += " ";
+				}
+				else {}
+			}
+			
+			return heaviestWhale;
+		}
 
 	public static void main(String[] args) {
 		
@@ -70,6 +93,8 @@ public class WhaleWatcher {
 		fastestSwimmer(whaleArray);
 		
 		averageLength(whaleArray);
+		
+		heaviestWhales(whaleArray);
 	}
 
 }
