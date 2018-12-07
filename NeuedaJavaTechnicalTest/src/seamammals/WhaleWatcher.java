@@ -38,6 +38,18 @@ public class WhaleWatcher {
 		
 		return fastestWhale;
 	}
+	
+	public static Double averageLength(ArrayList<Whale> whale) {
+		
+		Double sum = 0.0;
+		Double avg = 0.0;
+		
+		for(int i = 0 ; i < whale.size() ; i++) {
+			sum += whale.get(i).getLength();
+		}
+		
+		return avg = sum / whale.size();
+	}
 
 	public static void main(String[] args) {
 		
@@ -57,7 +69,7 @@ public class WhaleWatcher {
 		
 		fastestSwimmer(whaleArray);
 		
-	
+		averageLength(whaleArray);
 	}
 
 }
